@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+<!--index page-->
+    <div class="col s12">
+    <!--If statement to display a welcome user name on index page when login else a slogan-->
+        {% if 'username' in session %}
+        <h4 class="heading sub_heading balsamiq">Welcome {{ session['username'].capitalize() }}</h4>
+        {% else %}
+        <p class="slogan">A recipe has no soul, you as the cook can bring soul to the recipe.</p>
+        {% endif %}
+    </div>
+</div>
+<!--Carousel(image slider on the index page-->
+<div class="row slider-text">
+    <div class="col s12 m8">
+         <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+            <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+            <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+            <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+        </div>
+    </div>
+    <div class="col s12 m4">
+        <h4 class="text">Share your kosi shir with others.</h4>
+        <p class="text">Nothing apart people but Saman.</p>
+        <!--if statement to show add recipe button if user is logged in else display all recipe button-->
+        {% if 'username' in session %}
+        <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn balsamiq">Add Recipe<i class="material-icons right">playlist_add</i></a>
+        {% else %}
+        <a href="{{url_for('get_recipes')}}" class="waves-effect waves-light btn balsamiq">All Recipes<i class="material-icons right">sort</i></a>
+        {% endif %}
+        <form action="{{url_for('search_recipe')}}" method="POST">
+            <div class="input-field">
+                <input class="balsamiq" id="search_recipes" name="search_recipes" placeholder="Search" type="search" required />
+                <i class="material-icons">close</i>
+            </div>
+            <button class="btn waves-effect waves-light balsamiq" type="submit" name="action">Search Recipes<i class="material-icons right">search</i></button>
+        </form>
+    </div>
+</div>
+{% endblock %}
