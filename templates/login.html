@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+<h3 class="balsamiq login-heading">Log In</h3>
+<!--user login form-->
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('login') }}">
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="username" name="username" id="user_name" type="text" class="validate" required />
+                <label for="user_name">User Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" name="pasword" type="password" class="validate" required />
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light balsamiq" type="submit" name="action">
+                Login
+                <i class="material-icons right">login</i>
+            </button>
+        </div>
+    </form>
+    <!--button for sign up page-->
+    <p class="balsamiq">Don't have an account? <a href="{{url_for('register')}}">Sign Up</a></p>
+</div>
+{% endblock %}

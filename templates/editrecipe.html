@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+<h3 class="balsamiq">Edit Recipe</h3>
+<!--Edit Recipe form-->
+<div class="row balsamiq">
+    <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">outdoor_grill</i>
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}" minlength="1" data-length="60" maxlength="60" required />
+                <label for="recipe_name">Recipe Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="recipe_description" id="recipe_description" type="text" class="materialize-textarea" minlength="10" data-length="500" maxlength="500" required>{{recipe.recipe_description}}</textarea>
+                <label for="recipe_description">Recipe Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">settings</i>
+                <textarea name="recipe_ingredients" id="recipe_ingredients" type="text" class="materialize-textarea" minlength="1" data-length="1000" maxlength="1000" required>{{recipe.recipe_ingredients}}</textarea>
+                <label for="recipe_ingredients">Recipe Ingredients</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">format_list_numbered</i>
+                <textarea name="recipe_preparation" id="recipe_preparation" type="text" class="materialize-textarea" minlength="10" data-length="1500" maxlength="1500" required>{{recipe.recipe_preparation}}</textarea>
+                <label for="recipe_preparation">Recipe Preparation</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">local_dining</i>
+                <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
+                    <option value="" disabled selected>Choose your option </option>
+                    {% for cuisine in cuisines %} {% if cuisine.recipe_cuisine == recipe.recipe_cuisine %}
+                    <option value="{{cuisine.recipe_cuisine}}" selected>{{cuisine.recipe_cuisine}}</option>
+                    {% else%}
+                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
+                    {% endif %} {% endfor %}
+                </select>
+                <label>Select Cuisine</label>
+            </div>
+
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">av_timer</i>
+                <select id="cooking_time" name="cooking_time" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    {% for time in cooktime %} {% if time.cooking_time == recipe.cooking_time %}
+                    <option value="{{time.cooking_time}}" selected>{{time.cooking_time}}</option>
+                    {% else %}
+                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
+                    {% endif%} {% endfor %}
+                </select>
+                <label>Cooking Time</label>
+            </div>
+
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">format_list_bulleted</i>
+                <select id="recipe_type" name="recipe_type" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    {% for rtype in recipetype %} {% if rtype.recipe_type == recipe.recipe_type %}
+                    <option value="{{rtype.recipe_type}}" selected>{{rtype.recipe_type}}</option>
+                    {% else %}
+                    <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
+                    {% endif %} {% endfor %}
+                </select>
+                <label>Type</label>
+            </div>
+
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">person</i>
+                <select id="recipe_serving" name="recipe_serving" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    {% for serve in serving %} {% if serve.recipe_serving == recipe.recipe_serving %}
+                    <option value="{{serve.recipe_serving}}" selected>{{serve.recipe_serving}}</option>
+                    {% else %}
+                    <option value="{{serve.recipe_serving}}">{{serve.recipe_serving}}</option>
+                    {% endif %} {% endfor %}
+                </select>
+                <label>Serving</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s12" id="matfix">
+                    <i class="material-icons prefix">today</i>
+                    <input id="recipe_date" name="recipe_date" type="text" class="datepicker" required />
+                    <label for="recipe_date">Date of Creation</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-small waves-effect waves-light btn-text" type="submit" name="action">
+                Update
+                <i class="material-icons btn-small right">playlist_add</i>
+            </button>
+            <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn-small btn-text">Cancel<i class="material-icons btn-small right">cancel</i></a>
+        </div>
+    </form>
+</div>
+<!-- Added JQuery import on this page to over come the bug in datepicker - source Task Manager application tutorial-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        recipe_date = Date.parse("{{recipe.recipe_date}}");
+        $("#recipe_date").pickadate("picker").set("select", recipe_date, { format: "dd/mm/yyyy" }).trigger("change");
+    });
+</script>
+<!--Added underneath code here to avoid "Cannot read property addEventListener error" shown in console-->
+<script> 
+        //Added following code as there is bug in Materialize for datepicker source - Task Manager application tutorial
+        document.getElementById("matfix").addEventListener("click", function (e) {
+        e.stopPropagation();
+        });
+</script>
+{% endblock %}

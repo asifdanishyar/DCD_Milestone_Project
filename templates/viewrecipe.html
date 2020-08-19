@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+<!--view recipe page displays the detail of the recipe-->
+<div class="center-align"><h4 class="balsamiq">{{recipe.recipe_name}}</h4></div>
+<hr />
+<div class="row">
+    <div class="col s12">
+        <ul class="center-align balsamiq">
+            <li class="col s3">
+                <p><strong>Cuisine</strong></p>
+                {{recipe.recipe_cuisine}}
+            </li>
+            <li class="col s3">
+                <p><strong>Cooking Time</strong></p>
+                {{recipe.cooking_time}}
+            </li>
+            <li class="col s3">
+                <p><strong>Type</strong></p>
+                {{recipe.recipe_type}}
+            </li>
+            <li class="col s3">
+                <p><strong>Serving</strong></p>
+                {{recipe.recipe_serving}}
+            </li>
+        </ul>
+    </div>
+</div>
+<hr />
+<h4 class="balsamiq">Description</h4>
+<div class="left-align balsamiq">{{recipe.recipe_description}}</div>
+<hr />
+<h4 class="balsamiq">Ingredients</h4>
+<div class="left-align balsamiq">{{recipe.recipe_ingredients}}</div>
+<hr />
+<h4 class="balsamiq">Preparation</h4>
+<div class="left-align balsamiq">{{recipe.recipe_preparation}}</div>
+<hr />
+<h4 class="balsamiq">Date of Creation</h4>
+<div class="left-align balsamiq">{{recipe.recipe_date}}</div>
+<!--following if statement used to display edit and delete button only to recipe owner -->
+{% if session.username|lower == recipe.recipe_author|lower %}
+<hr />
+<div>
+    <a class="waves-effect waves-light btn btn-small balsamiq btn-text modal-trigger" data-target="modal1">Delete<i class="material-icons right">delete</i></a>
+    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn-small balsamiq btn-text">Edit<i class="material-icons right">system_update</i></a>
+</div>
+<!--this modal pops up when user click on delete button to confirm the deletion of recipe-->
+<div id="modal1" class="modal modal-size teal lighten-5">
+    <div class="modal-content center-align">
+        <h5 class="balsamiq">Are you sure you want to delete?</h5>
+        <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="modal-close waves-effect waves-green btn-flat balsamiq red-text">Yes</a>
+        <a href="#" class="modal-close waves-effect waves-green btn-flat balsamiq teal-text">No</a>
+    </div>
+</div>
+{% endif%} {% endblock %}

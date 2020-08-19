@@ -1,0 +1,114 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Krona+One&display=swap');
+.balsamiq {
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+.krona {
+    font-family: 'Krona One', sans-serif;
+}
+/*----------------------------navbar */
+nav ul a {
+    padding: 10px;
+}
+i.left {
+    margin-right: 5px;
+}
+.navbar {
+    min-height: 100px;
+    padding: 10px;
+}
+.logo{
+    margin-left: 25px;
+    margin-top: 15px;
+}
+.buger-button {
+    padding-top: 15px;
+}
+.nav-links {
+    margin-top: 8px;
+}
+
+.slogan{
+    font-size: 22px;
+    font-family: 'Krona One', sans-serif;
+}
+.text {
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+.slider-text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+img {
+height: 200px;
+
+}
+/*----------------------------recipe.html */
+.recipe-image{
+    margin-top: 20px;
+    max-height: 300px;
+    width: 100%;
+}
+.no-result{
+    padding-bottom: 20px;
+}
+/*----------------------------flash message*/
+.flash-msg {
+    position: absolute;
+    z-index: -1;
+}
+.flash {
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+/*----------------------------recipe.html*/
+.btn_size {
+    height: 24px;
+    line-height: 24px;  
+    width: 150px;
+}
+.recipe_name{
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+}
+/*----------------------------viewrecipe.html*/
+.modal-size {
+    max-width: 450px;
+}
+/*----------------------------Footer */
+.footer{
+    margin-top: 10px;
+
+}
+.social-links li {
+    display: inline;
+    padding: 20px;
+    font-size: 150%;
+}
+.social-links{
+    padding-top: 20px;
+}
+/*-----Following code makes footer sticky*/
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.footer-text{
+    padding-top: 20px;
+}
+/*----------------------------media query*/
+@media screen and (max-width: 550px) {
+  .login-heading {
+    padding-top: 45px;
+  }
+  
+  .btn-text{
+      font-size: 10px;
+  }
+}

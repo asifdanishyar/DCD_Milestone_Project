@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+    <div class="col s12">
+        <img class="responsive-img recipe-image" src="static/images/recipe.jpg" alt="Recipe Image" />
+    </div>
+</div>
+<!-- if statement added to display search result heading only when search function is used -->
+{% if search %}
+<h4 class="balsamiq">Search Result:</h4>
+{% endif %}
+<!-- Tim from tutour support help to improve & re-write this code -->
+{% if recipe.count() >0 %}
+<!-- 'recipe' variable has some results -->
+<ul class="collapsible">
+    {% for recipes in recipe %}
+    <!-- loop through each item in 'recipe' variable -->
+    <li class="balsamiq">
+        <div class="collapsible-header">
+            <div class="col s4">
+                <i class="material-icons">expand_more</i>
+                <a href="{{ url_for('view_recipe', recipe_id=recipes._id) }}" class="waves-effect waves-light btn btn_size">View</a>
+            </div>
+            <div class="col s8 recipe_name"><strong>{{ recipes.recipe_name }}</strong> - {{ recipes.recipe_cuisine }}</div>
+        </div>
+        <div class="collapsible-body">
+            <span>{{ recipes.recipe_description }}</span>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<!-- no results in 'recipe' variable -->
+<h4 class="balsamiq center-align no-result">No Recipe Found</h4>
+<!--if statement added to display the add recipe button and the text if user in session has no recipe added and click on my recipes-->
+{% if 'username' in session and my_recipes %}
+<div class="row">
+    <div class="col s12">
+    <h5 class="balsamiq">Please add a recipe to share with us!</h5>
+        <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn balsamiq">Add Recipe<i class="material-icons right">playlist_add</i></a>
+    </div>
+</div>
+{% endif %} {% endif %} {% endblock %}

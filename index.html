@@ -7,7 +7,7 @@
         {% if 'username' in session %}
         <h4 class="heading sub_heading balsamiq">Welcome {{ session['username'].capitalize() }}</h4>
         {% else %}
-        <p class="slogan">A recipe has no soul, you as the cook can bring soul to the recipe.</p>
+        <p class="slogan">some texts needs to be here some texts needs to be here .</p>
         {% endif %}
     </div>
 </div>
@@ -27,17 +27,22 @@
         <p class="text">Nothing apart people but Saman.</p>
         <!--if statement to show add recipe button if user is logged in else display all recipe button-->
         {% if 'username' in session %}
-        <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn balsamiq">Add Recipe<i class="material-icons right">playlist_add</i></a>
+        <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn balsamiq #455a64 blue-grey darken-2">Add Recipe<i class="material-icons right">playlist_add</i></a>
         {% else %}
-        <a href="{{url_for('get_recipes')}}" class="waves-effect waves-light btn balsamiq">All Recipes<i class="material-icons right">sort</i></a>
+        <a href="{{url_for('get_recipes')}}" class="waves-effect waves-light btn balsamiq #455a64 blue-grey darken-2">All Recipes<i class="material-icons right">sort</i></a>
         {% endif %}
         <form action="{{url_for('search_recipe')}}" method="POST">
             <div class="input-field">
                 <input class="balsamiq" id="search_recipes" name="search_recipes" placeholder="Search" type="search" required />
                 <i class="material-icons">close</i>
             </div>
-            <button class="btn waves-effect waves-light balsamiq" type="submit" name="action">Search Recipes<i class="material-icons right">search</i></button>
+            <button class="btn waves-effect waves-light balsamiq #455a64 blue-grey darken-2" type="submit" name="action">Search Recipes<i class="material-icons right">search</i></button>
         </form>
     </div>
 </div>
 {% endblock %}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
