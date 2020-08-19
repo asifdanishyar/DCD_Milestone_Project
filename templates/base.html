@@ -3,7 +3,7 @@
         <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>SummerRecipeBox</title>
+        <title>Recipebook</title>
         <!--Added favicon icon to git rid of favicon 404 error icone source flaticon-->
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/recipe-book.png') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
@@ -15,49 +15,50 @@
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
 
+
             
     </head>
     
     <body>
         <header>
         <!--Navbar-->
-        <nav>
-            <div class="nav-wrapper">
+            <nav class="#455a64 blue-grey darken-2 navbar ">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">SummerRecipeBox</a>
+                    <a href="{{url_for('index_recipe')}}" class="brand-logo logo">Recipebook</a>
                     <!--Add if statement to hide nav buttons on login and register page-->
                     {% if login_page is not defined %}
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <a href="#" data-activates="mobile-demo" class="button-collapse buger-button"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down nav-links">
                         <li>
-                            <a href="#">Home<i class="material-icons left">home</i></a>
+                            <a href="{{url_for('index_recipe')}}">Home<i class="material-icons left">home</i></a>
                         </li>
                         <li>
-                            <a href="#">All Recipes<i class="material-icons left">menu_open</i></a>
+                            <a href="{{url_for('get_recipes')}}">All Recipes<i class="material-icons left">menu_open</i></a>
                         </li>
                         <!--Add if statement to show Add Recipe, My Recipes & Logout buttons only if user is  logged in-->
                         {% if 'username' in session %}
                         <li>
-                            <a href="add recipe needs to be here">Add Recipe<i class="material-icons left">playlist_add</i></a>
+                            <a href="{{url_for('add_recipe')}}">Add Recipe<i class="material-icons left">playlist_add</i></a>
                         </li>
                         <li>
-                            <a href="url for my recipes maybe here">My Recipes<i class="material-icons left">supervisor_account</i></a>
+                            <a href="{{url_for('my_recipes')}}">My Recipes<i class="material-icons left">supervisor_account</i></a>
                         </li>
                         <li>
-                            <a href="url logout">Logout<i class="material-icons left">close</i></a>
+                            <a href="{{url_for('logout')}}">Logout<i class="material-icons left">close</i></a>
                         </li>
                         <!--If user is not logged in the show Log In instead of Add Recipe, My Recipes & Logout buttons-->
                         {% else %}
                         <li>
-                            <a href="url login">Log In<i class="material-icons left">login</i></a>
+                            <a href="{{url_for('login')}}">Log In<i class="material-icons left">login</i></a>
                         </li>
                         {% endif %}
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
                         <li>
-                            <a href="again indexrecipe">Home<i class="material-icons left">home</i></a>
+                            <a href="{{url_for('index_recipe')}}">Home<i class="material-icons left">home</i></a>
                         </li>
                         <li>
-                            <a href="again url for getrecipe">All Recipes<i class="material-icons left">sort</i></a>
+                            <a href="{{url_for('get_recipes')}}">All Recipes<i class="material-icons left">sort</i></a>
                         </li>
                         <!--Add if statement to show Add Recipe, My Recipes & Logout buttons only if user is  logged in-->
                         {% if 'username' in session %}
@@ -79,8 +80,7 @@
                     </ul>
                     {% endif %}
                 </div>
-            </div>
-        </nav>
+            </nav>
         </header>
         <main>
             <div class="container">
@@ -99,7 +99,7 @@
             </div>
         </main>
         <!--Footer-->
-        <footer class="teal footer">
+        <footer class="#455a64 blue-grey darken-2">
             <div class="container">
                 <div class="row center-align">
                     <div class="col s12 m6">
