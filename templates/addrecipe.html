@@ -1,8 +1,116 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
-<!--This message will be displayed to the user on broken url-->
-<h1 class="balsamiq">Oops! Looks like you entered wrong URL.</h1>
-<!--Following link will take user to the home page-->
-<a class="balsamiq" href="{{ url_for('index_recipe') }}">Recipebook Homepage</a>
+<h3 class="balsamiq">Add Recipe</h3>
+<!--Add recipe form-->
+<div class="row">
+    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12 balsamiq">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">local_bar</i>
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="1" maxlength="60" required />
+                <label for="recipe_name">Recipe Name</label>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">read_more</i>
+                <textarea name="recipe_description" id="recipe_description" type="text" class="materialize-textarea" minlength="10" maxlength="500" required></textarea>
+                <label for="recipe_description">Recipe Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">image_search</i>
+                <textarea name="recipe_ingredients" id="recipe_ingredients" type="text" class="materialize-textarea" minlength="1" maxlength="1000" required></textarea>
+                <label for="recipe_ingredients">Recipe Ingredients</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">chat</i>
+                <textarea name="recipe_preparation" id="recipe_preparation" type="text" class="materialize-textarea" minlength="10" maxlength="1500" required></textarea>
+                <label for="recipe_preparation">Recipe Preparation</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">local_dining</i>
+                <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
+                    <option value="" disabled selected>Choose your option </option>
+                             <option value="American">American</option>
+                    
+                    <option value="American">American</option>
+                    
+                    <option value="Asian">Asian</option>
+                    
+                    <option value="Europe">Europe</option>
+                    
+                    <option value="Indian">Indian</option>
+                    <!--Add for loop to iterate over cuisine list to render them in the select input form-->
+                    {% for cuisine in cuisines %}
+                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
+                    {% endfor %}
+                </select>
+                <label>Select Cuisine</label>
+            </div>
+
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">av_timer</i>
+                <select id="cooking_time" name="cooking_time" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <!--Add for loop to iterate over cooktime list to render them in the select input form-->
+                    {% for time in cooktime %}
+                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
+                    {% endfor %}
+                </select>
+                <label>Cooking Time</label>
+            </div>
+
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">format_list_bulleted</i>
+                <select id="recipe_type" name="recipe_type" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <!--Add for loop to iterate over recipe type list to render them in the select input form-->
+                    {% for rtype in recipetype %}
+                    <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
+                    {% endfor %}
+                </select>
+                <label>Type</label>
+            </div>
+
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">person</i>
+                <select id="recipe_serving" name="recipe_serving" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <!--Add for loop to iterate over serving list to render them in the select input form-->
+                    {% for serve in serving %}
+                    <option value="{{serve.recipe_serving}}">{{serve.recipe_serving}}</option>
+                    {% endfor %}
+                </select>
+                <label>Serving</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s12" id="matfix">
+                    <i class="material-icons prefix">today</i>
+                    <input id="recipe_date" name="recipe_date" type="text" class="datepicker" required />
+                    <label for="recipe_date">Date</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Add Recipe
+                <i class="material-icons right">playlist_add</i>
+            </button>
+        </div>
+    </form>
+</div>
+<!--Added underneath code here to avoid "Cannot read property addEventListener error" shown in console-->
+<script>
+        // Added following code as there is bug in Materialize for datepicker source - Task Manager application tutorial
+        document.getElementById("matfix").addEventListener("click", function (e) {
+            e.stopPropagation();
+            });
+</script>
 {% endblock %}
