@@ -43,6 +43,9 @@ img {
 height: 200px;
 
 }
+.carousel{
+    height: 60px;
+}
 /*----------------------------recipe.html */
 .recipe-image{
     margin-top: 20px;

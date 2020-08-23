@@ -38,15 +38,9 @@
                 <i class="material-icons prefix">local_dining</i>
                 <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
                     <option value="" disabled selected>Choose your option </option>
-                             <option value="American">American</option>
-                    
                     <option value="American">American</option>
-                    
                     <option value="Asian">Asian</option>
-                    
                     <option value="Europe">Europe</option>
-                    
-                    <option value="Indian">Indian</option>
                     <!--Add for loop to iterate over cuisine list to render them in the select input form-->
                     {% for cuisine in cuisines %}
                     <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
@@ -60,9 +54,12 @@
                 <select id="cooking_time" name="cooking_time" required>
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over cooktime list to render them in the select input form-->
-                    {% for time in cooktime %}
-                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
-                    {% endfor %}
+                    <option value="0 - 10m">0 - 10m</option>
+                    <option value="10m - 30m">10m - 30m</option>
+                    <option value="30m - 1h">30m - 1h</option>
+                    <option value="1 - 2h">1 - 2h</option>
+                    <option value="2h +">2h +</option>
+                    
                 </select>
                 <label>Cooking Time</label>
             </div>
@@ -99,7 +96,7 @@
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">
+            <button class="btn waves-effect #455a64 blue-grey" type="submit" name="action">
                 Add Recipe
                 <i class="material-icons right">playlist_add</i>
             </button>
