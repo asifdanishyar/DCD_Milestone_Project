@@ -28,9 +28,13 @@ mongo = PyMongo(app)
 def index_recipe():
 
     """
-    On page load, index page is displayed.
+    index page
     """
     return render_template('index.html')
+
+    """
+    error page
+    """
 
 
 @app.errorhandler(404)
@@ -38,6 +42,11 @@ def index_recipe():
 def not_found(e):
     # defining function
     return render_template("404.html"), 404
+
+
+"""
+login page
+"""
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -60,6 +69,11 @@ def login():
                 return redirect(url_for('index_recipe'))
         flash("Invalid username / password. Please try again.")
     return render_template('login.html', login_page=True)
+
+
+"""
+    register page
+"""
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -85,12 +99,22 @@ def register():
     return render_template('register.html', login_page=True)
 
 
+"""
+logout page
+"""
+
+
 @app.route('/logout')
 def logout():
     """Logs out the user and pops session"""
     if 'username' in session:
         session.pop('username')
     return redirect(url_for('index_recipe'))
+
+
+"""
+search section
+"""
 
 
 # Tim from tutor support helped to improve & re-write this function
@@ -104,6 +128,11 @@ def search_recipe():
     return render_template('recipes.html', recipe=recipe, search=True)
 
 
+"""
+recipe page just read (not loged in as user)
+"""
+
+
 @app.route('/get_recipes')
 def get_recipes():
     """
@@ -113,25 +142,24 @@ def get_recipes():
     return render_template('recipes.html', recipe=mongo.db.recipe.find())
 
 
+"""
+recipe page loged in as user
+"""
+
+
 @app.route('/my_recipes')
 def my_recipes():
-    """
-    Get the recipes own by the user in session from database
-    and render them on recipes.html page.
-    passed a variable my_recipe=True to set if statement to show
-    add recipe button if user in session have not added any recipe
-    yet and visit my recipes page.
-    """
     recipe = mongo.db.recipe.find({"recipe_author": session["username"]})
     return render_template('recipes.html', recipe=recipe, my_recipes=True)
 
 
+"""
+add recipe page
+"""
+
+
 @app.route('/add_recipe')
 def add_recipe():
-    """
-    Get the data from collections in database and displays
-    in the add recipe form for user selection.
-    """
     return render_template('addrecipe.html',
                            cuisines=mongo.db.cuisines.find()
                            .sort("recipe_cuisine"),
@@ -141,7 +169,6 @@ def add_recipe():
                            serving=mongo.db.serving.find())
 
 
-# Tim from tutor support helped to improve and re-write this function
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     """
@@ -166,6 +193,11 @@ def insert_recipe():
     return redirect(url_for('get_recipes'))
 
 
+"""
+view viewrecipe page
+"""
+
+
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
 
@@ -177,6 +209,11 @@ def view_recipe(recipe_id):
         return render_template('viewrecipe.html', recipe=the_recipe)
     except Exception:
         return render_template("404.html")
+
+
+"""
+eidit recipe page
+"""
 
 
 @app.route('/edit_recipe/<recipe_id>')
@@ -204,13 +241,13 @@ def edit_recipe(recipe_id):
         return render_template("404.html")
 
 
+"""
+update recipe page using post mehtod
+"""
+
+
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
-    """
-    It take the updated values and update the recipe details in
-    the database. Will show a flash message and redirect to the
-    list of the recipes
-    """
     recipe = mongo.db.recipe
     recipe.update({'_id': ObjectId(recipe_id)},
                   {
@@ -227,6 +264,11 @@ def update_recipe(recipe_id):
         })
     flash('Recipe Successfully Updated', 'success')
     return redirect(url_for('get_recipes'))
+
+
+"""
+delete recipe page
+"""
 
 
 @app.route('/delete_recipe/<recipe_id>')

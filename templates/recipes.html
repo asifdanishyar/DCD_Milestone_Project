@@ -11,7 +11,7 @@
 <h4 class="balsamiq">Search Result:</h4>
 {% endif %}
 <!-- Tim from tutour support help to improve & re-write this code -->
-{% if recipe.count() >0 %}
+{% if recipe.count() != 0 %}
 <!-- 'recipe' variable has some results -->
 <ul class="collapsible">
     {% for recipes in recipe %}

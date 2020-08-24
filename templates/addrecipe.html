@@ -34,19 +34,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m6 l3">
-                <i class="material-icons prefix">local_dining</i>
-                <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
-                    <option value="" disabled selected>Choose your option </option>
-                    <option value="American">American</option>
-                    <option value="Asian">Asian</option>
-                    <option value="Europe">Europe</option>
-                    <!--Add for loop to iterate over cuisine list to render them in the select input form-->
-                    {% for cuisine in cuisines %}
-                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
-                    {% endfor %}
+            <div class="input-field col s12 m6 13">
+                <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
                 </select>
-                <label>Select Cuisine</label>
+                <label>Materialize Select</label>
             </div>
 
             <div class="input-field col s12 m6 l3">
@@ -54,12 +49,9 @@
                 <select id="cooking_time" name="cooking_time" required>
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over cooktime list to render them in the select input form-->
-                    <option value="0 - 10m">0 - 10m</option>
-                    <option value="10m - 30m">10m - 30m</option>
-                    <option value="30m - 1h">30m - 1h</option>
-                    <option value="1 - 2h">1 - 2h</option>
-                    <option value="2h +">2h +</option>
-                    
+                    {% for time in cooktime %}
+                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
+                    {% endfor %}
                 </select>
                 <label>Cooking Time</label>
             </div>
@@ -105,7 +97,7 @@
 </div>
 <!--Added underneath code here to avoid "Cannot read property addEventListener error" shown in console-->
 <script>
-        // Added following code as there is bug in Materialize for datepicker source - Task Manager application tutorial
+        // Added following code to avoide bugs in Materialize for datepicker source - copied from google
         document.getElementById("matfix").addEventListener("click", function (e) {
             e.stopPropagation();
             });

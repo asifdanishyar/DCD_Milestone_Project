@@ -1,11 +1,6 @@
 
 $(document).ready(function() {
-    $('.carousel').carousel({
-    padding: 200    
-    });
-    setInterval(function(){
-        $('.carousel').carousel('next');
-    }, 2000);
+    $('.carousel').carousel();
     // code initializer for collapsible
     $(".collapsible").collapsible();
     // code initializer for select
@@ -40,6 +35,7 @@ $(".datepicker").pickadate({
     close: "Ok",
     closeOnSelect: false, // Close upon selecting a date,
 });
+$('select').formSelect();
 
 // Added underline code to make date picker field required
 // source stack overflow
