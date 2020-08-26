@@ -40,10 +40,10 @@
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over cooktime list to render them in the select input form-->
                     {% for cuisine in cuisines %}
-                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
                     <option value="American">American</option>
                     <option value="Asian">Asian</option>
                     <option value="European">European</option>
+                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
                     {% endfor %}
                 </select>
                 <label>Cuisines</label>
@@ -54,10 +54,10 @@
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over cooktime list to render them in the select input form-->
                     {% for time in cooktime %}
-                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
                     <option value="0-5 minutes">0-5 minutes</option>
                     <option value="5-15 minutes">5-15 minutes</option>
                     <option value="15-30 minutes">15-30 minutes</option>
+                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
                     {% endfor %}
                 </select>
                 <label>Cooking Time</label>
@@ -69,10 +69,10 @@
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over recipe type list to render them in the select input form-->
                     {% for rtype in recipetype %}
-                    <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
-                    <option value="Juice">Juice</option>
+                     <option value="Juice">Juice</option>
                     <option value="Smoothies">Smoothies</option>
                     <option value="Soft Smoothies">Soft Smoothies</option>
+                    <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
                     {% endfor %}
                 </select>
                 <label>Type</label>
