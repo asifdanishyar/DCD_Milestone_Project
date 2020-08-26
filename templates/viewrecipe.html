@@ -41,8 +41,8 @@
 {% if session.username|lower == recipe.recipe_author|lower %}
 <hr />
 <div>
-    <a class="waves-effect waves-light btn btn-small balsamiq btn-text modal-trigger" data-target="modal1">Delete<i class="material-icons right">delete</i></a>
-    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn-small balsamiq btn-text">Edit<i class="material-icons right">system_update</i></a>
+    <a class="#455a64 blue-grey waves-effect waves-light btn btn-small balsamiq btn-text modal-trigger" data-target="modal1">Delete<i class="material-icons right">delete</i></a>
+    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="#455a64 blue-grey waves-effect waves-light btn btn-small balsamiq btn-text">Edit<i class="material-icons right">system_update</i></a>
 </div>
 <!--this modal pops up when user click on delete button to confirm the deletion of recipe-->
 <div id="modal1" class="modal modal-size teal lighten-5">

@@ -237,7 +237,8 @@ def edit_recipe(recipe_id):
                                    serving=all_serving)
         else:
             return redirect(url_for('get_recipes'))
-    except Exception:
+    except Exception as e:
+        print(e)
         return render_template("404.html")
 
 

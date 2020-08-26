@@ -34,16 +34,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m6 13">
-                <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+        <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">landscape</i>
+                <select id="recipe_cuisine" name="recipe_cuisine" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <!--Add for loop to iterate over cooktime list to render them in the select input form-->
+                    {% for cuisine in cuisines %}
+                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
+                    <option value="American">American</option>
+                    <option value="Asian">Asian</option>
+                    <option value="European">European</option>
+                    {% endfor %}
                 </select>
-                <label>Materialize Select</label>
+                <label>Cuisines</label>
             </div>
-
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">av_timer</i>
                 <select id="cooking_time" name="cooking_time" required>
@@ -51,6 +55,9 @@
                     <!--Add for loop to iterate over cooktime list to render them in the select input form-->
                     {% for time in cooktime %}
                     <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
+                    <option value="0-5 minutes">0-5 minutes</option>
+                    <option value="5-15 minutes">5-15 minutes</option>
+                    <option value="15-30 minutes">15-30 minutes</option>
                     {% endfor %}
                 </select>
                 <label>Cooking Time</label>
@@ -63,6 +70,9 @@
                     <!--Add for loop to iterate over recipe type list to render them in the select input form-->
                     {% for rtype in recipetype %}
                     <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
+                    <option value="Juice">Juice</option>
+                    <option value="Smoothies">Smoothies</option>
+                    <option value="Soft Smoothies">Soft Smoothies</option>
                     {% endfor %}
                 </select>
                 <label>Type</label>
@@ -75,6 +85,9 @@
                     <!--Add for loop to iterate over serving list to render them in the select input form-->
                     {% for serve in serving %}
                     <option value="{{serve.recipe_serving}}">{{serve.recipe_serving}}</option>
+                    <option value="1-2 persons">1-2 persons</option>
+                    <option value="2-4 persons">2-4 persons</option>
+                    <option value="4-6 persons">4-6 persons</option>
                     {% endfor %}
                 </select>
                 <label>Serving</label>

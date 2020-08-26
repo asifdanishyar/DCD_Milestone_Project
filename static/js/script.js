@@ -1,6 +1,9 @@
 
 $(document).ready(function() {
-    $('.carousel').carousel();
+    $(".carousel").carousel();
+    setInterval(function() {
+        $(".carousel").carousel("next");
+    }, 3000);
     // code initializer for collapsible
     $(".collapsible").collapsible();
     // code initializer for select
@@ -8,7 +11,6 @@ $(document).ready(function() {
     // code initializer for side navbar
     $(".button-collapse").sideNav();
     $('select').formSelect();
-    // code initializer for carousel(image slider)
     
     
     // code initializer for modal
@@ -35,7 +37,6 @@ $(".datepicker").pickadate({
     close: "Ok",
     closeOnSelect: false, // Close upon selecting a date,
 });
-$('select').formSelect();
 
 // Added underline code to make date picker field required
 // source stack overflow
