@@ -50,17 +50,17 @@
             </div>
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">av_timer</i>
-                <select id="cooking_time" name="cooking_time" required>
+                <select id="making_time" name="making_time" required>
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over cooktime list to render them in the select input form-->
-                    {% for time in cooktime %}
+                    {% for time in maketime %}
                     <option value="0-5 minutes">0-5 minutes</option>
                     <option value="5-15 minutes">5-15 minutes</option>
                     <option value="15-30 minutes">15-30 minutes</option>
-                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
+                    <option value="{{time.making_time}}">{{time.making_time}}</option>
                     {% endfor %}
                 </select>
-                <label>Cooking Time</label>
+                <label>Making Time</label>
             </div>
 
             <div class="input-field col s12 m6 l3">
@@ -91,13 +91,6 @@
                     {% endfor %}
                 </select>
                 <label>Serving</label>
-            </div>
-            <div class="row">
-                <div class="input-field col s12" id="matfix">
-                    <i class="material-icons prefix">today</i>
-                    <input id="recipe_date" name="recipe_date" type="text" class="datepicker" required />
-                    <label for="recipe_date">Date</label>
-                </div>
             </div>
         </div>
         <div class="row">

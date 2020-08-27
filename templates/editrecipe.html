@@ -33,7 +33,7 @@
                 <label for="recipe_preparation">Recipe Preparation</label>
             </div>
         </div>
-        <div class="row">
+      <div class="row">
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">local_dining</i>
                 <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
@@ -49,15 +49,15 @@
 
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">av_timer</i>
-                <select id="cooking_time" name="cooking_time" required>
+                <select id="making_time" name="making_time" required>
                     <option value="" disabled selected>Choose your option</option>
-                    {% for time in cooktime %} {% if time.cooking_time == recipe.cooking_time %}
-                    <option value="{{time.cooking_time}}" selected>{{time.cooking_time}}</option>
+                    {% for time in times %} {% if time.making_time == recipe.making_time %}
+                    <option value="{{time.making_time}}" selected>{{time.making_time}}</option>
                     {% else %}
-                    <option value="{{time.cooking_time}}">{{time.cooking_time}}</option>
+                    <option value="{{time.making_time}}">{{time.making_time}}</option>
                     {% endif%} {% endfor %}
                 </select>
-                <label>Cooking Time</label>
+                <label> Time</label>
             </div>
 
             <div class="input-field col s12 m6 l3">
@@ -103,12 +103,6 @@
 </div>
 <!-- Added JQuery import on this page to over come the bug in datepicker - source Task Manager application tutorial-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        recipe_date = Date.parse("{{recipe.recipe_date}}");
-        $("#recipe_date").pickadate("picker").set("select", recipe_date, { format: "dd/mm/yyyy" }).trigger("change");
-    });
-</script>
 <!--Added underneath code here to avoid "Cannot read property addEventListener error" shown in console-->
 <script> 
         //Added following code as there is bug in Materialize for datepicker source - Task Manager application tutorial

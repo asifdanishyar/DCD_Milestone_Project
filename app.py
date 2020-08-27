@@ -100,7 +100,7 @@ def register():
 
 
 """
-logout page
+.............. logout page
 """
 
 
@@ -113,7 +113,7 @@ def logout():
 
 
 """
-search section
+............. search section
 """
 
 
@@ -129,21 +129,21 @@ def search_recipe():
 
 
 """
-recipe page just read (not loged in as user)
+............. recipe page just read only "not loged in"
 """
 
 
 @app.route('/get_recipes')
 def get_recipes():
     """
-    Get the recipes from database and render them
-    on recipes.html page.
+    ......... Get the recipes from database and render them
+    ......... on recipes.html page.
     """
     return render_template('recipes.html', recipe=mongo.db.recipe.find())
 
 
 """
-recipe page loged in as user
+............ recipe page loged in as user
 """
 
 
@@ -154,7 +154,7 @@ def my_recipes():
 
 
 """
-add recipe page
+............. add recipe page
 """
 
 
@@ -163,7 +163,7 @@ def add_recipe():
     return render_template('addrecipe.html',
                            cuisines=mongo.db.cuisines.find()
                            .sort("recipe_cuisine"),
-                           cooktime=mongo.db.cooktime.find(),
+                           maketime=mongo.db.maketime.find(),
                            recipetype=mongo.db.recipetype.find()
                            .sort("recipe_type"),
                            serving=mongo.db.serving.find())
@@ -179,12 +179,11 @@ def insert_recipe():
     recipe.insert_one(
         {
             'recipe_name': request.form.get('recipe_name'),
-            'recipe_cuisine': request.form.get('recipe_cuisine'),
-            'recipe_ingredients': request.form.get('recipe_ingredients'),
             'recipe_description': request.form.get('recipe_description'),
+            'recipe_ingredients': request.form.get('recipe_ingredients'),
             'recipe_preparation': request.form.get('recipe_preparation'),
-            'recipe_date': request.form.get('recipe_date'),
-            'cooking_time': request.form.get('cooking_time'),
+            'recipe_cuisine': request.form.get('recipe_cuisine'),
+            'making_time': request.form.get('making_time'),
             'recipe_type': request.form.get('recipe_type'),
             'recipe_serving': request.form.get('recipe_serving'),
             'recipe_author': session["username"]
@@ -227,12 +226,12 @@ def edit_recipe(recipe_id):
         if session["username"] == the_user['recipe_author']:
             the_recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
             all_cuisines = mongo.db.cuisines.find()
-            all_cooktime = mongo.db.cooktime.find()
+            all_maketime = mongo.db.makingtime.find()
             all_recipetype = mongo.db.recipetype.find()
             all_serving = mongo.db.serving.find()
             return render_template('editrecipe.html', recipe=the_recipe,
                                    cuisines=all_cuisines,
-                                   cooktime=all_cooktime,
+                                   maketime=all_maketime,
                                    recipetype=all_recipetype,
                                    serving=all_serving)
         else:
@@ -253,14 +252,14 @@ def update_recipe(recipe_id):
     recipe.update({'_id': ObjectId(recipe_id)},
                   {
             'recipe_name': request.form.get('recipe_name'),
-            'recipe_cuisine': request.form.get('recipe_cuisine'),
-            'recipe_ingredients': request.form.get('recipe_ingredients'),
             'recipe_description': request.form.get('recipe_description'),
+            'recipe_ingredients': request.form.get('recipe_ingredients'),
             'recipe_preparation': request.form.get('recipe_preparation'),
-            'recipe_date': request.form.get('recipe_date'),
-            'cooking_time': request.form.get('cooking_time'),
+            'recipe_cuisine': request.form.get('recipe_cuisine'),
+            'making_time': request.form.get('making_time'),
             'recipe_type': request.form.get('recipe_type'),
             'recipe_serving': request.form.get('recipe_serving'),
+            'recipe_date': request.form.get('recipe_date'),
             'recipe_author': session["username"]
         })
     flash('Recipe Successfully Updated', 'success')

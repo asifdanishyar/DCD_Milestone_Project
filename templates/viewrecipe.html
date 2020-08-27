@@ -11,8 +11,8 @@
                 {{recipe.recipe_cuisine}}
             </li>
             <li class="col s3">
-                <p><strong>Cooking Time</strong></p>
-                {{recipe.cooking_time}}
+                <p><strong>Making Time</strong></p>
+                {{recipe.making_time}}
             </li>
             <li class="col s3">
                 <p><strong>Type</strong></p>
@@ -35,8 +35,6 @@
 <h4 class="balsamiq">Preparation</h4>
 <div class="left-align balsamiq">{{recipe.recipe_preparation}}</div>
 <hr />
-<h4 class="balsamiq">Date of Creation</h4>
-<div class="left-align balsamiq">{{recipe.recipe_date}}</div>
 <!--following if statement used to display edit and delete button only to recipe owner -->
 {% if session.username|lower == recipe.recipe_author|lower %}
 <hr />
