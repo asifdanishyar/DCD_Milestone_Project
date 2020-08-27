@@ -34,46 +34,48 @@
             </div>
         </div>
         <div class="row">
-        <div class="input-field col s12 m6 l3">
-                <i class="material-icons prefix">landscape</i>
-                <select id="recipe_cuisine" name="recipe_cuisine" required>
-                    <option value="" disabled selected>Choose your option</option>
-                    <!--Add for loop to iterate over cooktime list to render them in the select input form-->
-                    {% for cuisine in cuisines %}
-                    <option value="American">American</option>
-                    <option value="Asian">Asian</option>
-                    <option value="European">European</option>
-                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
-                    {% endfor %}
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">local_dining</i>
+                <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
+                    <option value="" disabled selected>Choose your option </option>
+                    <!--Add for loop to iterate over cuisine list to render them in the select input form-->
+                    <option value="American"><op1>American</op1></option>
+                    
+                    <option value="British">British</option>
+                    
+                    <option value="Chinese">Chinese</option>
                 </select>
-                <label>Cuisines</label>
+                <label>Select Cuisine</label>
             </div>
+
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">av_timer</i>
-                <select id="making_time" name="making_time" required>
+                <select id="cooking_time" name="cooking_time" required>
                     <option value="" disabled selected>Choose your option</option>
-                    <!--Add for loop to iterate over cooktime list to render them in the select input form-->
-                    {% for time in maketime %}
-                    <option value="0-5 minutes">0-5 minutes</option>
-                    <option value="5-15 minutes">5-15 minutes</option>
-                    <option value="15-30 minutes">15-30 minutes</option>
-                    <option value="{{time.making_time}}">{{time.making_time}}</option>
-                    {% endfor %}
+                    <!--Add for loop to iterate over making time list to render them in the select input form-->
+                    
+                    <option value="0 - 5 minutes">0 - 5 minutes</option>
+                    
+                    <option value="5 - 10 minutes">5 - 10 minutes</option>
+                    
+                    <option value="10m - 20 minutes">10m - 20 minutes</option>
+                    
                 </select>
                 <label>Making Time</label>
             </div>
 
-            <div class="input-field col s12 m6 l3">
+             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">format_list_bulleted</i>
                 <select id="recipe_type" name="recipe_type" required>
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over recipe type list to render them in the select input form-->
-                    {% for rtype in recipetype %}
-                     <option value="Juice">Juice</option>
-                    <option value="Smoothies">Smoothies</option>
-                    <option value="Soft Smoothies">Soft Smoothies</option>
-                    <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
-                    {% endfor %}
+                    
+                    <option value="Smoothie">Smoothie</option>
+                    
+                    <option value="Thick">Thick</option>
+                    
+                    <option value="Juice">Juice</option>
+                    
                 </select>
                 <label>Type</label>
             </div>
@@ -83,12 +85,13 @@
                 <select id="recipe_serving" name="recipe_serving" required>
                     <option value="" disabled selected>Choose your option</option>
                     <!--Add for loop to iterate over serving list to render them in the select input form-->
-                    {% for serve in serving %}
-                    <option value="{{serve.recipe_serving}}">{{serve.recipe_serving}}</option>
-                    <option value="1-2 persons">1-2 persons</option>
-                    <option value="2-4 persons">2-4 persons</option>
-                    <option value="4-6 persons">4-6 persons</option>
-                    {% endfor %}
+                    
+                    <option value="1 - 2 persons">1 - 2 persons</option>
+                    
+                    <option value="2 - 4 persons">3 - 4 persons</option>
+                    
+                    <option value="4 - 6 persons">4 - 5 persons</option>
+                    
                 </select>
                 <label>Serving</label>
             </div>

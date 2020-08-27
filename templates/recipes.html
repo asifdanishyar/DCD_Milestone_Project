@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col s12">
-        <img class="responsive-img recipe-image" src="static/images/juice.jpg" alt="Recipe Image" />
+        <img class="responsive-img recipe-image" src="static/images/recipe1.jpg" alt="Recipe Image" />
     </div>
 </div>
 <!-- if statement added to display search result heading only when search function is used -->
@@ -20,7 +20,7 @@
         <div class="collapsible-header">
             <div class="col s4">
                 <i class="material-icons">expand_more</i>
-                <a href="{{ url_for('view_recipe', recipe_id=recipes._id) }}" class="waves-effect waves-light btn btn_size">View</a>
+                <a href="{{ url_for('view_recipe', recipe_id=recipes._id) }}" class="#455a64 blue-grey waves-effect waves-light btn btn_size">View</a>
             </div>
             <div class="col s8 recipe_name"><strong>{{ recipes.recipe_name }}</strong> - {{ recipes.recipe_cuisine }}</div>
         </div>
