@@ -8,7 +8,7 @@ $(document).ready(function() {
     // code initializer for carousel(image slider)
     $(".carousel").carousel();
     setInterval(function() {
-        $(".carousel").carousel("next");
+        $(".carousel").carousel("previous");
     }, 2000);
     // code initializer for modal
     $(".modal").modal();
