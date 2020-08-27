@@ -37,8 +37,8 @@
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">local_dining</i>
                 <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
-                    <option value="" disabled selected>Choose your option </option>
-                     <option value="American">American</option>
+                    <option value="recipe_cuisine" disabled selected>Choose your option </option>
+                    <option value="American">American</option>
                     
                     <option value="British">British</option>
                     
@@ -98,8 +98,6 @@
         </div>
     </form>
 </div>
-<!-- Added JQuery import on this page to over come the bug in datepicker - source Task Manager application tutorial-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--Added underneath code here to avoid "Cannot read property addEventListener error" shown in console-->
 <script> 
         //Added following code as there is bug in Materialize for datepicker source - Task Manager application tutorial
