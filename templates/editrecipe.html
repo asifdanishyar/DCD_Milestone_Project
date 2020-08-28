@@ -6,7 +6,7 @@
     <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">outdoor_grill</i>
+                <i class="material-icons prefix">local_drink</i>
                 <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}" minlength="1" data-length="60" maxlength="60" required />
                 <label for="recipe_name">Recipe Name</label>
             </div>
@@ -68,9 +68,9 @@
                     <option value="" disabled selected>Choose your option</option>
                     <option value="Smoothie">Smoothie</option>
                     
-                    <option value="Thick">Thick</option>
+                    <option value="Thick">Thick Juice</option>
                     
-                    <option value="Juice">Juice</option>
+                    <option value="Juice">Soft Juice</option>
                     
                 </select>
                 <label>Type</label>

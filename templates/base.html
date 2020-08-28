@@ -49,7 +49,7 @@
                             <a href="{{url_for('index_recipe')}}">Home<i class="material-icons left">home</i></a>
                         </li>
                         <li>
-                            <a href="{{url_for('get_recipes')}}">All Recipes<i class="material-icons left">sort</i></a>
+                            <a href="{{url_for('get_recipes')}}">Show Recipes<i class="material-icons left">sort</i></a>
                         </li>
                         <!--Add if statement to show Add Recipe, My Recipes & Logout buttons only if user is  logged in-->
                         {% if 'username' in session %}
@@ -95,7 +95,7 @@
                 <div class="row center-align">
                     <div class="col s12 m6">
                         <p class="white-text footer-text krona">
-                            Created ........................
+                            Educational purpose-Only @2020
                         </p>
                     </div>
                     <div class="col s12 m6">
@@ -104,9 +104,6 @@
                                 <a class="grey-text text-lighten-3" href="#" target="_blank">
                                     <i class="fa fa-linkedin-square" aria-hidden="true"></i><span class="sr-only">Linkedin</span>
                                 </a>
-                            </li>
-                            <li>
-                                <a class="grey-text text-lighten-3" href="#" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i><span class="sr-only">Github</span></a>
                             </li>
                         </ul>
                     </div>

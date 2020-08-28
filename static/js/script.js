@@ -1,19 +1,18 @@
 $(document).ready(function() {
-    // code initializer for collapsible
+    // code for collapsible
     $(".collapsible").collapsible();
-    // code initializer for select
+    // code for select
     $("select").material_select();
-    // code initializer for side navbar
+    // code for side navbar
     $(".button-collapse").sideNav();
-    // code initializer for carousel(image slider)
-    $(".carousel").carousel();
-    setInterval(function() {
-        $(".carousel").carousel("previous");
-    }, 2000);
-    // code initializer for modal
+    // code for carousel(image slider)
+        $(".carousel").carousel();
+        setInterval(function() {
+        $(".carousel").carousel("next");
+    }, 3000);
+    // code for modal
     $(".modal").modal();
-    $("select").formselect();
-    // code initializer for flash message
+    // for flash message
     $(".alert.success").hide().delay(1000).fadeIn(200).delay(4000).fadeOut(200);
     // code initializer for character counter in input fields
     $('input#recipe_name, textarea#recipe_description, textarea#recipe_ingredients, textarea#recipe_preparation').characterCounter();

@@ -1,39 +1,64 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# OnlineSmoothieRecipe
 
-Welcome asifdanishyar,
+## Data Centric Development Milestone Project-3
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## Description
 
-## Gitpod Reminders
+The OnlineSmoothieRecipe is an online recipe notes, where a user can find recipes or add his/her own recipes. User can create an account
+with features of adding, updating and deleting his/her own recipes.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# UX
 
-`python3 -m http.server`
+### Intended Target Audiences
 
-A blue button should appear to click: *Make Public*,
+ The target audience of this web page are juice and smoothie lovers who are either in search of good making recipes or they want to save 
+ their favourite recipes online and want to share with others. The purpose of this web-page is to provide a platform to juice/smoothie lovers
+ so they can share their recipes with others. Besides, the web page owner's goal is to create a smoothie/juice recipes database.
 
-Another blue button should appear to click: *Open Browser*.
+ ### Suitability Of Project
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+This project is suitable to perform **CRUD** operations.
+- Users can create, view and search for recipes in the database.
+- Users can edit or delete their own recipes.
+- Users can only view other's recipes but don't have the access to edit or delete other's recipes.
+- User login system has put in place so that user can manage their recipes.
 
-A blue button should appear to click: *Make Public*,
+ ### User Stories
 
-Another blue button should appear to click: *Open Browser*.
+ 1. As a user, I want to see a list of recipes.
+ 2. As a user, I want to search for recipes so that I can find recipes easily and quickly.
+ 3. As a user, I want to be able to create an account.
+ 4. As a user, I want to be able to login to my account.
+ 5. AS a user, I want to store/add  and share my recipes online with others.
+ 6. As a user, I want to see a list of my own recipes.
+ 7. As a user, I want to see the details of the recipe.
+ 8. As a user, I want to update/dlete my existing recipes.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+## Design
 
-## Updates Since The Instructional Video
+ The website design is simple and responsive which allows the user to perform easily the CRUD functionality. The design 
+ inspiration is taken from the **Code Institute's Task Manager Mini Project**.
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+#### Fonts
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+1. Google fonts **Krona One** is used in navbar and footer. 
+2. Where as **Balsamiq Sans** is used in the body. 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+#### features
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+1. The target_blank value is given to the social link in the footer so that they will open in a new tab / window on click.
+2. The required attribute is used in the **Search bar**, **Log In form**, **Sign Up form**, **Add Recipe form** and **Edit Recipe form** so that user 
+fill in all the files before performing the respective actions.
+3. Maximum, minimum and character counter attributes are also added in the input fields for better user experience. 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Hover Effect
 
---------
+1. Slight changes in background-colors and default cursor changes to the pointer happens when a user hover over a button.
+2. Default cursor changes to hand pointer when a user hover over logo and social links.
 
-Happy coding!
+## Wireframes
+
+I used [Balsamiq](https://balsamiq.com/) to create wireframes which will provide an overview of prototyping a website. 
+- [Wireframes in PDF](static/wireframes/wireframe.pdf)
+
+
