@@ -245,9 +245,9 @@ then the images starts flashing. I did not tried to fix it and it remains there.
 
 ## Deployment to Heroku
 
-- **[Recipebook Live Page](???????)**
+- **[OnlineSmoothieRecipe Live Page](???????)**
 
-- **[Recipebook Github Repository](????????)**
+- **[OnlineSmoothieRecipe Github Repository](https://github.com/asifdanishyar/DCD_Milestone_Project)**
 
 1. Login to **[Heroko](https://www.heroku.com/)** account.
 2. Click on **New** at the right top corner and click on **Create new app**.
@@ -270,7 +270,7 @@ then the images starts flashing. I did not tried to fix it and it remains there.
 
 ## Local Deployment
 
-1. Go to [Recipebook Github Repository](?????)
+1. Go to [OnlineSmoothieRecipe Github Repository](https://github.com/asifdanishyar/DCD_Milestone_Project)
 2. Click on **Code** beside **Gitpod**. 
 3. A drop down menu open then click on **Download Zip**
 4. Unzip the downloaded zip file.
