@@ -5,19 +5,17 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
-# if os.path.exists("env.py"):
-# import env
 
-# it should work using env.py
-# app.secret_key = os.environ.get("SECRET_KEY")    instead of "runko"
+if os.path.exists("env.py"):
+    import env
 
 
 app = Flask(__name__)
 
 
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-
-app.secret_key = "runko"
+app.config["MONGO_DBNAME"] = 'MyTestDB'
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
