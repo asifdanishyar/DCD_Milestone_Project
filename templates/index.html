@@ -4,7 +4,7 @@
 <div class="row">
 <!--index page-->
     <div class="col s12">
-    <!--If statement to display a welcome user name on index page when login else a slogan-->
+    <!--If statement to display a welcome user name on index page when login else the bellow slogan-->
         {% if 'username' in session %}
         <h4 class="heading sub_heading balsamiq">Welcome {{ session['username'].capitalize() }}</h4>
         {% else %}
@@ -43,5 +43,4 @@
     </div>
 </div>
 {% endblock %}
-
 </body>

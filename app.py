@@ -24,14 +24,7 @@ mongo = PyMongo(app)
 @app.route('/index_recipe')
 def index_recipe():
 
-    """
-    index page
-    """
     return render_template('index.html')
-
-    """
-    error page
-    """
 
 
 @app.errorhandler(404)
@@ -41,17 +34,12 @@ def not_found(e):
     return render_template("404.html"), 404
 
 
-"""
-login page
-"""
-
-
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     """
     Checks first in the database if username exist.
-    Then matches username and password match and returns
-    to index Page. If not then shows a flash message.
+    Then matches username and password and returns
+    to index Page. If not then show a flash message.
     A variable login_page=True is passed to set if statement
     to hide nav buttons on login page.
     """
@@ -68,16 +56,11 @@ def login():
     return render_template('login.html', login_page=True)
 
 
-"""
-    register page
-"""
-
-
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     """
-    Checks first in the database if username exist.
-    If yes then show a flash message. If not then let
+    Check first in the database if username exist.
+    If yes, show flash message. If not, let
     user to register. A variable login_page=True is passed
     to set if statement to hide nav buttons on register page.
     """
@@ -96,11 +79,6 @@ def register():
     return render_template('register.html', login_page=True)
 
 
-"""
-.............. logout page
-"""
-
-
 @app.route('/logout')
 def logout():
     """Logs out the user and pops session"""
@@ -109,25 +87,15 @@ def logout():
     return redirect(url_for('index_recipe'))
 
 
-"""
-............. search section
-"""
-
-
-# Tim from tutor support helped to improve & re-write this function
+# Search function
 @app.route('/search_recipe', methods=['POST'])
 def search_recipe():
     search_recipes = request.form.get("search_recipes")
-    #  create the index
+    #  i could put this in main to not create every time. i leave it to future.
     mongo.db.recipe.create_index([("$**", 'text')])
-    # search with the search word that came through the form
+    # search with the names
     recipe = mongo.db.recipe.find({"$text": {"$search": search_recipes}})
     return render_template('recipes.html', recipe=recipe, search=True)
-
-
-"""
-............. recipe page just read only "not loged in"
-"""
 
 
 @app.route('/get_recipes')
@@ -139,20 +107,11 @@ def get_recipes():
     return render_template('recipes.html', recipe=mongo.db.recipe.find())
 
 
-"""
-............ recipe page loged in as user
-"""
-
-
+# recipe page loged in as user
 @app.route('/my_recipes')
 def my_recipes():
     recipe = mongo.db.recipe.find({"recipe_author": session["username"]})
     return render_template('recipes.html', recipe=recipe, my_recipes=True)
-
-
-"""
-............. add recipe page
-"""
 
 
 @app.route('/add_recipe')
@@ -170,7 +129,7 @@ def add_recipe():
 def insert_recipe():
     """
     Add the user's inserted data in the database and redirect
-    the user to recipes.html showing a flash message.
+    the user to recipes.html (get_recipe route) showing a flash message.
     """
     recipe = mongo.db.recipe
     recipe.insert_one(

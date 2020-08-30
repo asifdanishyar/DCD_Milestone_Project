@@ -10,7 +10,7 @@
 {% if search %}
 <h4 class="balsamiq">Search Result:</h4>
 {% endif %}
-<!-- Tim from tutour support help to improve & re-write this code -->
+<!-- i had an issue using <= sign then i used not eaual sign -->
 {% if recipe.count() != 0 %}
 <!-- 'recipe' variable has some results -->
 <ul class="collapsible">
@@ -31,9 +31,9 @@
     {% endfor %}
 </ul>
 {% else %}
-<!-- no results in 'recipe' variable -->
+<!-- no recipe found if user did not add any recipes -->
 <h4 class="balsamiq center-align no-result">No Recipe Found</h4>
-<!--if statement added to display the add recipe button and the text if user in session has no recipe added and click on my recipes-->
+<!--The add recipe button and texts if no recipe found -->
 {% if 'username' in session and my_recipes %}
 <div class="row">
     <div class="col s12">

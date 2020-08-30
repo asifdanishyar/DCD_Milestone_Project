@@ -11,11 +11,10 @@
                 <label for="recipe_name">Recipe Name</label>
             </div>
         </div>
-
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="recipe_description" id="recipe_description" type="text" class="materialize-textarea" minlength="10" data-length="500" maxlength="500" required>{{recipe.recipe_description}}</textarea>
+                <textarea name="recipe_description" id="recipe_description" type="text" class="materialize-textarea" minlength="6" data-length="500" maxlength="500" required>{{recipe.recipe_description}}</textarea>
                 <label for="recipe_description">Recipe Description</label>
             </div>
         </div>
@@ -29,7 +28,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">format_list_numbered</i>
-                <textarea name="recipe_preparation" id="recipe_preparation" type="text" class="materialize-textarea" minlength="10" data-length="1500" maxlength="1500" required>{{recipe.recipe_preparation}}</textarea>
+                <textarea name="recipe_preparation" id="recipe_preparation" type="text" class="materialize-textarea" minlength="6" data-length="1500" maxlength="1500" required>{{recipe.recipe_preparation}}</textarea>
                 <label for="recipe_preparation">Recipe Preparation</label>
             </div>
         </div>
@@ -37,55 +36,56 @@
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">local_dining</i>
                 <select class="recipe_cuisine" id="recipe_cuisine" name="recipe_cuisine" required>
-                    <option value="recipe_cuisine" disabled selected>Choose your option </option>
+                    {% for cuisine in cuisines %} {% if cuisine.recipe_cuisine == recipe.recipe_cuisine %}
+                    <option value="{{cuisine.recipe_cuisine}}" selected>{{cuisine.recipe_cuisine}}</option>
+                    {% else%}
+                    <option value="{{cuisine.recipe_cuisine}}">{{cuisine.recipe_cuisine}}</option>
+                    {% endif %} {% endfor %}
                     <option value="American">American</option>
-                    
                     <option value="European">European</option>
-                    
                     <option value="Asian">Asian</option>
                 </select>
                 <label>Select Cuisine</label>
             </div>
-
-
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">av_timer</i>
                 <select id="making_time" name="making_time" required>
-                    <option value="" disabled selected>Choose your option</option>
-                     <option value="0 - 5 minutes">0 - 5 minutes</option>
-                    
-                    <option value="5 - 10 minutes">5 - 10 minutes</option>
-                    
+                    {% for time in makektime %} {% if time.making_time == recipe.making_time %}
+                    <option value="{{time.making_time}}" selected>{{time.making_time}}</option>
+                    {% else %}
+                    <option value="{{time.making_time}}">{{time.making_time}}</option>
+                    {% endif%} {% endfor %}
+                    <option value="0 - 5 minutes">0 - 5 minutes</option>                    
+                    <option value="5 - 10 minutes">5 - 10 minutes</option>                    
                     <option value="10m - 20 minutes">10m - 20 minutes</option>
-                    
                 </select>
                 <label>Making Time</label>
             </div>
-
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">format_list_bulleted</i>
                 <select id="recipe_type" name="recipe_type" required>
-                    <option value="" disabled selected>Choose your option</option>
+                    {% for rtype in recipetype %} {% if rtype.recipe_type == recipe.recipe_type %}
+                    <option value="{{rtype.recipe_type}}" selected>{{rtype.recipe_type}}</option>
+                    {% else %}
+                    <option value="{{rtype.recipe_type}}">{{rtype.recipe_type}}</option>
+                    {% endif %} {% endfor %}
                     <option value="Smoothie">Smoothie</option>
-                    
                     <option value="Thick Juice">Thick Juice</option>
-                    
                     <option value="Soft Juice">Soft Juice</option>
-                    
                 </select>
                 <label>Type</label>
             </div>
-
             <div class="input-field col s12 m6 l3">
                 <i class="material-icons prefix">person</i>
                 <select id="recipe_serving" name="recipe_serving" required>
-                    <option value="" disabled selected>Choose your option</option>
-                   <option value="1 - 2 persons">1 - 2 persons</option>
-                    
+                    {% for serve in serving %} {% if serve.recipe_serving == recipe.recipe_serving %}
+                    <option value="{{serve.recipe_serving}}" selected>{{serve.recipe_serving}}</option>
+                    {% else %}
+                    <option value="{{serve.recipe_serving}}">{{serve.recipe_serving}}</option>
+                    {% endif %} {% endfor %}
+                    <option value="1 - 2 persons">1 - 2 persons</option>
                     <option value="2 - 4 persons">3 - 4 persons</option>
-                    
                     <option value="4 - 6 persons">4 - 5 persons</option>
-                    
                 </select>
                 <label>Serving</label>
             </div>

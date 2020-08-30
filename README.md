@@ -32,7 +32,7 @@ This project is suitable to perform **CRUD** operations.
  5. AS a user, I want to store/add  and share my recipes online with others.
  6. As a user, I want to see a list of my own recipes.
  7. As a user, I want to see the details of the recipe.
- 8. As a user, I want to update/dlete my existing recipes.
+ 8. As a user, I want to update/delete my existing recipes.
 
 ## Design
 
@@ -99,8 +99,8 @@ display a message **Oops! Looks like you entered wrong URL**. It will also provi
 
 ### Future Implementations
 
-- **Linking Carousles** At the moment **All Recipes** and **My Recipes** pages shows all the recipes. But in 
-in future I would like to add links to the carousel images which can redirect users to the spicific recipe of that clicked image.
+- **Linking Carousles** At the moment **All Recipes** and **My Recipes** pages shows all the recipes. But in future I would like to add
+links to the carousel images which can redirect users to the spicific recipe of that clicked image.
 - **Graphs** possiblities of adding graphs in future to give a statistical overview of the recipes.
 - **Reset Password** A reset password feature can be added in the future.
 - **Recover Password** Password recovery feature if forgotten can also be added in future.
@@ -129,7 +129,7 @@ in future I would like to add links to the carousel images which can redirect us
 
 Google developers tool has been used to test the project constantly from the  beginning to identify any error or to see 
 how the changes looks like on different screen sizes. I created my own account and tested all the functions to make sure 
-they work properly. In addition, I aslo asked my family, friends and slack community to test the project and give their feedback.
+they work properly. In addition, I aslo asked my family, friends to test the project and give their feedbacks.
 
 ### User Stories
 
@@ -213,35 +213,6 @@ The code has been validated by using;
 - [W3C Markup Validation Service for HTML](https://validator.w3.org/)
 - [W3C Markup Validation Service for CSS](https://jigsaw.w3.org/css-validator/)
 - [Pep8 Online for Pyhton](http://pep8online.com/)
-
-### Interesting Bugs / Issue
-
-1. **Add Recipe function stopped working** - I encountered a very interesting bug when I made datepicker field a required 
-field. I also wanted to show a feedback message to the user. To achieve this, I added a **JavaScript** function which I took from **Stack overflow**. 
-But later I realized that **Add Recipe** function is not working. Since I used **Git** version control so I start going back to
-the previous versions of my project to find out after which commit **Add Recipe** button stopped working. At last I found out
-that its the **JavaScript** function that is causing this issue. So I replaced it with a **JQuery code** and solved this issue.
-2. **Recipes can be stolen / Edited** - A very interesting bug that one of my friend **Elliot Redhead** point out was that a user can 
-steal someone else's recipe and can edit / delete. Although edit / delete button are ment to display only to recipe owner.
-Process of stealing recipe was;
-- First view someone else's recipe and copy the recipe ID from the URL.
-- Now open your own recipe in edit recipe page.
-- Remove your recipe's ID and paste someone else's recipe ID.
-- Press Enter now can edit someone els's recipe.
-- **Solution** - To overcome this issue I need to update my edit recipe function. I put a check over there that will first see 
-if the user who is trying to access the edit recipe page is the owner of the recipe. If **yes** then the function will let user
-to proceed to edit recipe page else user will be redirected to the home page.
-3. **No Recipe Found** - If a user in session does not have any own recipe then **No Recipe Found** message is displayed but
-in the beginning this message has been also displayed in **All recipes**. To overcome this issue I need to amend my **Search Recipe**
-function and **My Recipes** function togeather with if statement in recipes.html. Credit goes to Tim who helped me to fix this issue.
-4. **Flash Messages** - Flash messages were not appearing after a delay of few seconds on **Adding Recipe**, **Updating Recipe**
-and **Deleting Recipe** I realized later that, I need to hide it first then delay and it worked.
-5. **Carousel** - I found out that if user keep click on or on touch screen keep pressing the **Carousel (Image Slider)**
-then the images starts flashing. I did not tried to fix it and it remains there.
-6.  In the **Input form** fields, user can insert content without giving spaces as a single line entry and add the recipe in the
- database. When later this recipe is viewed then it is displayed in a weird way as text will be overlapping out of the text fields.
- To overcome this I need to either add some complex Regular Expressions to the pattern or some keystroke queries using JavaScript,
- that I left for future.
 
 ## Deployment to Heroku
 

@@ -1,8 +1,7 @@
   <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
-<!--This message will be displayed to the user if not reached to the url-->
+<!-- user gets this message if not reached to the url-->
 <h1 class="balsamiq">Oops! Looks like you entered wrong URL.</h1>
-<!--Following link will take user to the home page-->
-<a class="balsamiq" href="{{ url_for('index_recipe') }}">Recipebook Homepage</a>
-
+<!--redirect user to the home page-->
+<a class="balsamiq" href="{{ url_for('index_recipe') }}">OnlineSmoothieRecipe Homepage</a>
 {% endblock %}
