@@ -245,7 +245,7 @@ then the images starts flashing. I did not tried to fix it and it remains there.
 
 ## Deployment to Heroku
 
-- **[OnlineSmoothieRecipe Live Page](???????)**
+- **[OnlineSmoothieRecipe Live Page](http://online-smoothie-recipe.herokuapp.com/index_recipe)**
 
 - **[OnlineSmoothieRecipe Github Repository](https://github.com/asifdanishyar/DCD_Milestone_Project)**
 
